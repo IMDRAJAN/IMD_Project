@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr scann </title>
+
+    <link rel='stylesheet' href='/css/QrScanner.css' />
+
+
+    <!-- sweelet alert -->
+    <script src="/javaScript/alertStylefile/sweetalert2.all.min.js"></script>
+    <!-- qr Scanner  -->
+    <script src="/javaScript/QRcodeScanerFile/qr_packed.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/grid.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/version.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/detector.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/formatinf.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/errorlevel.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/bitmat.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/datablock.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/bmparser.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/datamask.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/rsdecoder.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/gf256poly.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/gf256.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/decoder.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/qrcode.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/findpat.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/alignpat.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/databr.js"></script>
+    <script src="/javaScript/QRcodeScanerFile/html5-qrcode.min.js"></script>
+</head>
+
+
+
+<body>
+
+    <div class="container ">
+        <% if (typeof QrPointOrNot !=='undefined' && QrPointOrNot) { %>
+            <script>
+                Swal.fire({
+                    html: ' <div  style="color: red;" ><%= QrPointOrNot %> </div>',
+                    confirmButtonText: '<i class="fa fa-Qrcode"> close ',
+                }).then(() => {
+                    console.log("stop");
+                })
+            </script>
+            <% } else { %>
+                <% } %>
+
+
+                    <div class="card">
+
+                        <div class="userinformation">
+
+                            <% if (typeof UserData !=='undefined' && UserData) { %>
+
+                                <div> <span>
+                                        <%= UserData.UserName %>
+                                    </span> </div>
+                                <div> <span>
+                                        <%= UserData.POINTS %>
+                                    </span> <span> Points </span></div>
+                                <% } else { %>
+                                    <small>error </small>
+                                    <% } %>
+
+                        </div>
+
+                        <div class="offers">
+
+                            <div class="offer-heading">
+                                <h3>Reward </h3>
+                            </div>
+
+
+
+                            <% for (let i=0; i < Rewards.length; i++) { %>
+
+                                <div class="offer">
+                                    <div>
+                                        <div> <b>
+                                                <%=Rewards[i].POINTS %> Points ➡ <%=Rewards[i].RUPES%> Rupes
+                                            </b> </div>
+                                        <%=Rewards[i].TEXT%>
+                                    </div>
+                                    <div>
+                                        <a href="/qrscanner/<%=UserData._id%>/<%=Rewards[i]._id%>">
+                                            <button class="button-6" role="button">Get</button>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <% } %>
+
+
+
+                        </div>
+
+                        <div class="scnnBtn">
+                            <button id="scanner_QrCode" class="button-6" role="button"> <img
+                                    src="/image/QrScanner_orang.png">
+                            </button>
+                        </div>
+
+                        <div class="setting">⚙</div>
+                    </div>
+
+    </div>
+
+    <form method="post" style="display: none;">
+        <input id="Qrvalue" name="Qrvalue" value="" type="text">
+        <input type="submit" id="submit">
+    </form>
+
+    <script>
+        var Qrvalue = document.getElementById("Qrvalue")
+        Qrvalue = 0;
+
+        document.getElementById("scanner_QrCode").addEventListener("click", function (e) {
+            Swal.fire({
+                html: ' <div id="reader"></div>',
+                confirmButtonText: '<i class="fa fa-Qrcode"> close ',
+            }).then(() => {
+                // Stop the QR code scanner
+                html5QrcodeScanner.clear();
+                console.log("stop");
+            });
+
+            // Initialize the QR code scanner
+            const html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+                fps: 20, // Optional: Frames per second for scanning
+                qrbox: 250, // Optional: Size of QR code scanning box
+            });
+
+            // Start scanning
+            html5QrcodeScanner.render((result) => {
+                // Handle the scanned result
+                console.log(result);
+                alert(`Scanned QR code: ${result}`);
+                // var decrypted = CryptoJS.AES.decrypt(result, "EncriptTtuduListQRCode").toString(CryptoJS.enc.Utf8);
+                // console.log("qr code decript = ", decrypted);
+                document.getElementById("Qrvalue").setAttribute("value", result);
+                document.getElementById("submit").click()
+                html5QrcodeScanner.clear();
+                Swal.close();
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

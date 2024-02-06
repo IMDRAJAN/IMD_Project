@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+				initial-scale=1.0">
+    <title>Print</title>
+    <link rel='stylesheet' href='/css/AdminCss/Adminstyle.css' />
+    <link rel="stylesheet" href="/css/AdminCss/Responsive.css">
+
+    <!-- style qrcode -->
+    <script src="/javaScript/StyleQrCode/style-qr-code.min.js"></script>
+    <!-- Download qr code -->
+    <script src="/javaScript/QrDownload/htm2pdf.bundle.min.js"></script>
+
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
+
+
+</head>
+
+<style>
+    .qrcodearreng {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .qrcodearreng div {
+        margin: 5px 8px;
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+
+    <!-- for header part -->
+    <header>
+
+        <%- include('./AdminHeader.ejs')  %>
+
+    </header>
+
+    <div class="main-container">
+        <div class="navcontainer">
+            <%- include('./AdminNaveBar.ejs')  %>
+        </div>
+        <div class="main">
+
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-button">
+                </div>
+            </div>
+
+            <div class="box-container">
+
+                <form method="post">
+                    <div class="box box1">
+                        <div class="text">
+                            <h2 class="topic-heading">
+                                <%= data.length %>
+                            </h2>
+                            <h2 class="topic">QR Code</h2>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Articles">
+                        <%= data.length %> QR Code
+                    </h1>
+                    <!-- <button class="view">Download</button> -->
+                    <form method="post">
+                        <button type="button" id="DownloadPDF" class="view">Download</button>
+                        <button type="submit" id="submitPrint" class="view"   style="display: none;"  >Print</button>
+                    </form>
+
+                </div>
+
+                <div class="report-body">
+                    <div id="qrcodedownloade" class="qrcodearreng">
+
+                        <% for (let i=0; i < data.length; i++) { %>
+                            <div id="canvas<%= i %>"></div>
+                            <script>
+                                function generateQRCode() {
+                                    // console.log('Generating QR Code for:', '<%= data[i]._id %>');
+                                    let qrCode = new QRCodeStyling({
+                                        width: 167,
+                                        height: 167,
+                                        type: "png",
+                                        data: '<%= data[i]._id %>',
+                                        image: "/image/WhatsApp Image 2024-01-06 at 6.47.29 PM.jpeg",
+                                        dotsOptions: {
+                                            color: "#000",
+                                            type: "rounded"
+                                        },
+                                        backgroundOptions: {
+                                            color: "#e9ebee",
+                                        },
+                                        imageOptions: {
+                                            crossOrigin: "anonymous",
+                                            margin: 3
+                                        }
+                                    });
+
+                                    qrCode.append(document.getElementById("canvas<%= i %>"));
+                                    // console.log('QR Code generation complete.');
+                                }
+
+                                generateQRCode();
+                            </script>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        document.getElementById('DownloadPDF').addEventListener('click', () => {
+            // After all QR codes are generated, generate the PDF
+            html2pdf().from(document.getElementById('qrcodedownloade')).save("Qrpdf.pdf").then((result) => {
+                document.getElementById('submitPrint').click();
+            }).catch((err) => {
+                console.log('not download');
+            });
+        })
+
+
+
+        let menuicn = document.querySelector(".menuicn");
+        let nav = document.querySelector(".navcontainer");
+
+        menuicn.addEventListener("click", () => {
+            nav.classList.toggle("navclose");
+        })
+    </script>
+</body>
+
+</html>

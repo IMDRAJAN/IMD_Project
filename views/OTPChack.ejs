@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMD</title>
+    <link rel='stylesheet' href='/css/OTPChack.css' />
+
+</head>
+
+<body>
+    <%= OTP %>
+        <form action="/verification/<%=Mailid %>" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                            <label> An OTP has been sent to the <%= Mailid %> email id </label>
+                        </div>
+                        <div>
+                            <label for="number"> Enter OTP </label>
+                        </div>
+                        <div>
+                            <input id="otp" type="number" onfocusout="checkOTP()" name="OTP" max="9999">
+                            <small id="notmatch" style="color: red;"></small>
+                        </div>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div>
+                            <input id="submit" type="button" value="verifiyOTP">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+</body>
+
+<script>
+    function checkOTP() {
+
+        var enteredOTP = document.getElementById('otp').value;
+        var serverOTP = '<%= OTP %>';
+
+        if (enteredOTP === serverOTP) {
+            document.getElementById('notmatch').innerHTML = '';
+            document.getElementById('submit').setAttribute('type', 'submit')
+            return true; 
+        } else {
+            document.getElementById('notmatch').innerHTML = 'OTP does not match';
+            return false; 
+        }
+    }
+</script>
+</script>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+				initial-scale=1.0">
+    <title>UserPayment</title>
+    <link rel='stylesheet' href='/css/AdminCss/Adminstyle.css' />
+    <link rel="stylesheet" href="/css/AdminCss/Responsive.css">
+</head>
+
+<body>
+
+    <!-- for header part -->
+    <header>
+
+        <%- include('./AdminHeader.ejs')  %>
+
+    </header>
+
+    <div class="main-container">
+
+        <div class="navcontainer">
+            <%- include('./AdminNaveBar.ejs')  %>
+        </div>
+
+
+
+        <div class="main">
+
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-button">
+                </div>
+            </div>
+
+            <div class="box-container">
+
+                <form method="post">
+                    <div class="box box1">
+                        <div class="text">
+                            <h2 class="topic-heading">
+
+                            </h2>
+                            <h2 class="topic"></h2>
+                        </div>
+
+
+                    </div>
+
+                    <div class="box box2">
+                        <div class="text">
+                            <h2 class="topic"></h2>
+                            <h3 class="topic-heading"><input type="number" name="QrCodeCreate" value="0"></h3>
+                            <!-- <h4 class="topic"></h4> -->
+                        </div>
+
+                    </div>
+
+                    <div class="box box3">
+                        <div class="text">
+                            <h2 class="topic"></h2>
+                            <h3 class="topic-heading"><input type="number" name="QrPointe" value='0'></h3>
+                        </div>
+
+                    </div>
+
+                    <div class="box box4">
+                        <div class="text">
+                            <h2><button type="submit"> Creat</button></h2>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Articles">
+                        Payment
+                    </h1>
+                    <button class="view">View All</button>
+                </div>
+
+                <div class="report-body">
+
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <td>No</td>
+                                <td>User Information</td>
+                                <td>Pointes</td>
+                                <td>Reward</td>
+                                <td>SCANN</td>
+                                <td>date</td>
+                                <td>Succes</td>
+                                <td>Delete</td>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

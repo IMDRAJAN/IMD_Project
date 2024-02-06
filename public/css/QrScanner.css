@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+.card {
+    max-width: 400px;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.userinformation {
+    height: 12vh;
+    margin: 10px 0px 0px 0px;
+    padding: 7px;
+    background-color: rgba(101, 218, 107, 0.050);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    /* text-shadow: 2px 2px rgb(137, 137, 138); */
+}
+
+.userinformation div {
+    width: 80%;
+    height: 25%;
+    margin: 2% 0px;
+    border-radius: 10px;
+    padding: 1.5%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+
+}
+
+.userinformation div:nth-child(1) {
+    width: 80%;
+
+}
+
+.userinformation div:nth-child(2) {
+
+    width: 40%;
+}
+
+img {
+    width: 70px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.setting {
+
+    font-size: 40px;
+    position: absolute;
+    right: 2%;
+    top: 1%;
+}
+
+.offers {
+    max-width: 99%;
+    background-color: rgba(189, 172, 248, 0.089);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 59vh;
+    overflow: auto;
+    margin: 10px 0px;
+}
+
+.offer {
+   
+    display: flex;
+    margin: 7px;
+    border-radius: 10px;
+    text-wrap: wrap;
+    color: #555;
+}
+
+.offer-heading {
+    text-align: center;
+    color: black;
+    text-shadow: 2px 2px rgb(182, 171, 182);
+}
+
+.offer div:nth-child(1) {
+    padding: 5px;
+    width: 85%;
+    border-radius: 10px;
+    text-align: justify;
+
+}
+
+.offer div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.offer div:nth-child(2) button {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.scnnBtn {
+    background-color: rgba(101, 218, 107, 0.050);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 18vh;
+    display: flex;
+    margin: 10px 0px 0px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.scnnBtn button {
+    border-radius: 100%;
+    background-color: #4caf50;
+}
+
+/* CSS */
+ .button-6 {
+    align-items: center;
+    background-color: rgb(139, 83, 255);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: 2px;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+} 
+
+.button-6:hover,
+.button-6:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+    transform: translateY(-1px);
+}
+
+.button-6:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f160;
+    /* Color of the scrollbar track */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(247, 128, 0, 0.678);
+    /* Color of the scrollbar thumb */
+    border-radius: 5px;
+    /* Roundness of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Color of the scrollbar thumb on hover */
+}
+
+/*  qr code start scannin button stop scannin button */
+#html5-qrcode-button-camera-start{
+    align-items: center;
+    background-color: rgb(46, 1, 134);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: 2px 5px;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+#html5-qrcode-button-camera-start:hover,
+#html5-qrcode-button-camera-start:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#html5-qrcode-button-camera-start:hover {
+    transform: translateY(-1px);
+}
+
+#html5-qrcode-button-camera-start:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+#html5-qrcode-anchor-scan-type-change{
+    margin: 25px 0px;
+}

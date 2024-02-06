@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method</title>
+
+    <!-- <link rel='stylesheet' href='/css/QrScanner.css' /> -->
+
+</head>
+
+<style>
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    details p {
+        margin: 10px 0;
+    }
+
+    form div {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    select {
+        width: calc(100% - 20px);
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    details>summary {
+        list-style-type: none;
+    }
+
+    details>summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details>summary::before {
+        content: '👉';
+        padding-right: 5px;
+    }
+
+    details[open]>summary::before {
+        content: '👇';
+    }
+
+    details {
+        border: 1px solid gray;
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        margin-bottom: 10px;
+    }
+
+    details[open]>summary {
+        margin-bottom: 0.5rem;
+    }
+    
+</style>
+
+
+
+<body>
+
+    <div class="container ">
+        <div class="card">
+
+            <h3>Which use this Payment Method </h3>
+
+
+
+
+
+            <div>
+                <article>
+
+                    <details>
+                        <summary> Bank Account </summary>
+                        <p>
+
+                        <form method="post">
+
+                            <div>Enter  Name</div>
+                            <input type="text" name="Name" placeholder="Enter Name" required>
+
+                            <div>Enter Bank Account Number</div>
+                            <input type="text" name="AccoNumber" placeholder="Enter Bank Acount Number" required>
+
+                            <div>Enter IFSC Code</div>
+                            <input type="text" name="IFSCCode" placeholder="Enter IFSC Code" required>
+                            <div>Select Bank</div>
+                            <select name="Bankname" class="form-control" required>
+                                <option selected="selected" value="0">--Select --</option>
+                                <option value="ALLAHABAD BANK">ALLAHABAD BANK </option>
+                                <option value="ANDHRA BANK">ANDHRA BANK</option>
+                                <option value="AXIS BANK">AXIS BANK</option>
+                                <option value="STATE BANK OF INDIA">STATE BANK OF INDIA</option>
+                                <option value="BANK OF BARODA">BANK OF BARODA</option>
+                                <option value="UCO BANK">UCO BANK</option>
+                                <option value="UNION BANK OF INDIA">UNION BANK OF INDIA</option>
+                                <option value="BANK OF INDIA">BANK OF INDIA</option>
+                                <option value="BANDHAN BANK LIMITED">BANDHAN BANK LIMITED</option>
+                                <option value="CANARA BANK">CANARA BANK</option>
+                                <option value="GRAMIN VIKASH BANK">GRAMIN VIKASH BANK</option>
+                                <option value="CORPORATION BANK">CORPORATION BANK</option>
+                                <option value="INDIAN BANK">INDIAN BANK</option>
+                                <option value="INDIAN OVERSEAS BANK">INDIAN OVERSEAS BANK</option>
+                                <option value="ORIENTAL BANK OF COMMERCE">ORIENTAL BANK OF COMMERCE</option>
+                                <option value="PUNJAB AND SIND BANK">PUNJAB AND SIND BANK</option>
+                                <option value="PUNJAB NATIONAL BANK">PUNJAB NATIONAL BANK</option>
+                                <option value="RESERVE BANK OF INDIA">RESERVE BANK OF INDIA</option>
+                                <option value="SOUTH INDIAN BANK">SOUTH INDIAN BANK</option>
+                                <option value="UNITED BANK OF INDIA">UNITED BANK OF INDIA</option>
+                                <option value="CENTRAL BANK OF INDIA">CENTRAL BANK OF INDIA</option>
+                                <option value="VIJAYA BANK">VIJAYA BANK</option>
+                                <option value="DENA BANK">DENA BANK</option>
+                                <option value="BHARATIYA MAHILA BANK LIMITED">BHARATIYA MAHILA BANK LIMITED</option>
+                                <option value="FEDERAL BANK LTD ">FEDERAL BANK LTD </option>
+                                <option value="HDFC BANK LTD">HDFC BANK LTD</option>
+                                <option value="ICICI BANK LTD">ICICI BANK LTD</option>
+                                <option value="IDBI BANK LTD">IDBI BANK LTD</option>
+                                <option value="PAYTM BANK">PAYTM BANK</option>
+                                <option value="FINO PAYMENT BANK">FINO PAYMENT BANK</option>
+                                <option value="INDUSIND BANK LTD">INDUSIND BANK LTD</option>
+                                <option value="KARNATAKA BANK LTD">KARNATAKA BANK LTD</option>
+                                <option value="KOTAK MAHINDRA BANK">KOTAK MAHINDRA BANK</option>
+                                <option value="YES BANK LTD">YES BANK LTD</option>
+                                <option value="SYNDICATE BANK">SYNDICATE BANK</option>
+                                <option value="BANK OF INDIA">BANK OF INDIA</option>
+                                <option value="BANK OF MAHARASHTRA">BANK OF MAHARASHTRA</option>
+                            </select>
+
+                            <input type="text" name="UserInforMation" style="display: none;" value="<%=data._id%>">
+                            <input type="text" name="RwerDInformation" style="display: none;" value="<%=RewardData._id%>">
+
+                            <button type="submit"> process </button>
+                        </form>
+
+
+                        </p>
+                    </details>
+                </article>
+
+            </div>
+
+
+            <div>
+                <article>
+
+                    <details>
+                        <summary> UPI </summary>
+                        <p>
+
+                        <form method="post">
+
+                            <div>Enter UPI ID</div>
+                            <input type="text" name="UPIID" placeholder="Enter UPI ID" required>
+
+                            <input type="text" name="UserInforMation" style="display: none;" value="<%=data._id%>" >
+                            <input type="text" name="RwerDInformation" style="display: none;" value="<%=RewardData._id%>">
+
+                            <button type="submit"> process </button>
+
+                        </form>
+                        </p>
+                    </details>
+                </article>
+
+            </div>
+
+
+        
+
+        </div>
+
+        </form>
+
+    </div>
+
+
+
+    <script>
+
+        const details = document.querySelectorAll("details");
+
+        // Add the onclick listeners.
+        details.forEach((detail) => {
+            detail.addEventListener("toggle", () => {
+                if (detail.open) setTargetDetail(detail);
+            });
+        });
+
+        // Close all the details that are not targetDetail.
+        function setTargetDetail(targetDetail) {
+            details.forEach((detail) => {
+                if (detail !== targetDetail) {
+                    detail.open = false;
+                }
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

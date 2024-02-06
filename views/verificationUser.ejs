@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/css/verification.css' />
+    <title>IMD</title>
+</head>
+
+<body>
+
+
+    <form  method="post">
+        <table>
+            <tr>
+                <td>
+                    <div>
+                        <label for="number"> Enter Mail ID </label>
+                    </div>
+                    <div>
+                        <input type="email" name="UserEmail" placeholder="enter mailid" >
+                        <% if (typeof notFindMail !=='undefined' && notFindMail) { %>
+                            <small> Mailid not find </small> 
+                        <% } else { %>
+                        <% } %>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div>
+                        <input id="OTPbtn" type="submit" value="Send OTP">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
