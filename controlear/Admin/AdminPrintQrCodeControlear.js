@@ -4,6 +4,7 @@ const route = express.Router()
 const QR_Code = require('../../model/QrCodeModel.js');
 
 
+
 const ShowQrCode = async (req, res) => {
     try {
 

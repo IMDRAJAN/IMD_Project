@@ -16,14 +16,14 @@
     <!-- for header part -->
     <header>
 
-        <%- include('./AdminHeader.ejs')  %>
+        <%- include('./AdminHeader.ejs') %>
 
     </header>
 
     <div class="main-container">
 
         <div class="navcontainer">
-            <%- include('./AdminNaveBar.ejs')  %>
+            <%- include('./AdminNaveBar.ejs') %>
         </div>
 
 
@@ -40,7 +40,7 @@
 
             <div class="box-container">
 
-                <form method="post">
+                <!-- <form method="post">
                     <div class="box box1">
                         <div class="text">
                             <h2 class="topic-heading">
@@ -56,7 +56,7 @@
                         <div class="text">
                             <h2 class="topic"></h2>
                             <h3 class="topic-heading"><input type="number" name="QrCodeCreate" value="0"></h3>
-                            <!-- <h4 class="topic"></h4> -->
+                            
                         </div>
 
                     </div>
@@ -76,7 +76,7 @@
                         </div>
 
                     </div>
-                </form>
+                </form> -->
             </div>
 
             <div class="report-container">
@@ -96,9 +96,12 @@
                             <tr>
                                 <td>No</td>
                                 <td>User Information</td>
-                                <td>Pointes</td>
-                                <td>Reward</td>
-                                <td>SCANN</td>
+                                <td>Reward Information</td>
+                                <td>User Pointes</td>
+                                <td>Reward Points</td>
+                                <td>Reward Rupes</td>
+                                <td>Payment Method</td>
+                                <td>User Payment Rupes</td>
                                 <td>date</td>
                                 <td>Succes</td>
                                 <td>Delete</td>
@@ -109,7 +112,39 @@
 
                         <tbody>
 
+                            <% for (let i=0; i < PaymentUser.length; i++) { %>
 
+                                <tr>
+                                    <td>
+                                        <%= i+1 %>
+                                    </td>
+                                    <td> <%= PaymentUser[i].UserID %> </td>
+
+                                    <td><%= PaymentUser[i].RewardID %>  </td>
+
+                                    <td> <%= PaymentUser[i].UserPoints %> </td>
+
+                                    <td> <%= PaymentUser[i].RewardPoints %> </td>
+
+                                    <td> <%= PaymentUser[i].RewardRupes %> </td>
+
+                                    <td> <div><%= PaymentUser[i].PaymentMethod[0] %> </div>
+                                         <div><%= PaymentUser[i].PaymentMethod[1] %></div>
+                                         <div><%= PaymentUser[i].PaymentMethod[2] %></div>
+                                         <div><%= PaymentUser[i].PaymentMethod[3] %></div>
+                                    </td>
+
+                                    <td> <%= PaymentUser[i].Rupes %> </td>
+
+                                    <td> <%= PaymentUser[i].date %> </td>
+
+                                    <td> <form action="" method="post"> <button type="submit" name="PaymentID_Succes"  value="<%= PaymentUser[i]._id %>" > ✔️  </button> </form> </td>
+
+                                    <td> <form action="" method="post"> <button type="submit" name="PaymentID_delete"  value="<%= PaymentUser[i]._id %>" >   ❌   </button> </form></td>
+
+                                </tr>
+
+                                <% } %>
                         </tbody>
                     </table>
 

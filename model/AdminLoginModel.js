@@ -23,6 +23,6 @@ const Admin_Schema = new mongooes.Schema({
     },
 });
 
-const Admin = new mongooes.model("admin", Admin_Schema);
+const Admin = new mongooes.model( process.env.COLLECTION_1 , Admin_Schema);
 
 module.exports = Admin

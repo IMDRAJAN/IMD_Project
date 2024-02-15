@@ -7,5 +7,5 @@ const {UserAnalies} = require('../../controlear/Admin/AdminUserAnaliesControlear
 
 
 route.get('/',UserAnalies );
-// route.post('/', )
+
 module.exports = route 

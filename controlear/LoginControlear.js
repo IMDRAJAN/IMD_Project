@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const jwt = require('jsonwebtoken');
 const cookieParser=require('cookie-parser');
@@ -6,7 +7,7 @@ const UserAdd = require('../model/userRegistationModel.js');
 const CryptoJS = require("crypto-js");
 
 
-let jwrSecreatKey = "mynameisrajanrathodmaheshabhaidhanjibjai"
+const sixMonthsInSeconds = 6 * 30 * 24 * 60 * 60; // 6 months in seconds
 
 const loginfile = async (req, res) => {
 
@@ -15,7 +16,7 @@ const loginfile = async (req, res) => {
         let userId = req.cookies.userDataBaseID;
         console.log(userId);
 
-        let verifiedToken = jwt.verify(userId, jwrSecreatKey);
+        let verifiedToken = jwt.verify(userId, process.env.JWT_SCRICT_KEY);
         console.log(verifiedToken);
         let result = await UserAdd.findOne({ _id: verifiedToken.id });
 
@@ -40,7 +41,7 @@ const scannQrFile = async (req, res) => {
         console.log(req.body.Password);
         console.log(req.body.Email);
 
-        var password = "SecretPassword"; // env
+        var password =  process.env.USER_PASSWOED_KEY; // env
 
         let result = await UserAdd.findOne({ EmailId: req.body.Email });
         console.log(result);
@@ -56,15 +57,18 @@ const scannQrFile = async (req, res) => {
                 console.log(req.body.Email);
 
                 // add  cookies
-                let token = jwt.sign({id:result._id},jwrSecreatKey)
+                let token = jwt.sign({id:result._id},process.env.JWT_SCRICT_KEY)
                 console.log("token = ",token);
-                res.cookie('userDataBaseID', token, { 
-                    // expires: expirationDate,
-                    httpOnly: true // Ensures the cookie is only accessible via HTTP(S) and not client-side JavaScript
+
+                const sixMonthsInSeconds = 6 * 30 * 24 * 60 * 60 * 60;
+                res.cookie('userDataBaseID', token, {
+                    httpOnly: true,
+                    maxAge: sixMonthsInSeconds * 1000 , // Max age in milliseconds
+                    secure: true, // Enable for production (requires HTTPS)
+                    sameSite: 'strict' // Enable for added security
                 });
+
                 console.log(req.cookies.userDataBaseID);
-
-
 
                 res.redirect('/qrscanner' );
             } else {
@@ -89,3 +93,5 @@ const dleteStudent = (req, res) => {
     }
 }
 module.exports = { loginfile, scannQrFile, dleteStudent }
+
+

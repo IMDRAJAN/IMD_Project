@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+
+</style>
+
 <head>
   <title>
     Registration
   </title>
   <link rel='stylesheet' href='/css/Registration.css' />
-  <script src="/javaScript/js/country-states.js"></script>
-  <script src="/javaScript/js/country-states-citey.js"></script>
+  <script src="/javaScript/js/country-states-citey.js" ></script>
 </head>
 
 
@@ -36,10 +39,24 @@
       <tr>
         <td>
           <div>
+            <label for="Gender">Gender</label>
+          </div>
+          <div id="Gender">
+            <input type="radio" name="Gender" value="Male" placeholder="enter Name" required> <span>Male</span>
+            <input type="radio" name="Gender" value="Female" placeholder="enter Name" required> <span>Female</span>
+            <input type="radio" name="Gender" value="Other" placeholder="enter Name" required> <span>Other</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div>
             <label for="MobileNumber">Mobile Number</label>
           </div>
           <div>
-            <input type="tel" pattern="[0-9]{10}" title="Enter Valid mobile Number" name="MobileNumber" value="323" placeholder="enter mobile number "  required>
+            <input type="tel" pattern="[0-9]{10}" title="Enter Valid mobile Number" name="MobileNumber" value="323"
+              placeholder="enter mobile number " required>
           </div>
         </td>
 
@@ -66,7 +83,7 @@
 
             <select id="country" name="Country" class="form-select">
               <!-- <option>select country</option> -->
-              <option >India</option>
+              <option>India</option>
             </select>
           </div>
 
@@ -84,7 +101,7 @@
           <div class="mb-3">
 
             <select onchange="print_city('state', this.selectedIndex);" id="sts" name="State" class="form-control"
-            required></select>
+              required></select>
 
             <!-- <select id="state" name="State" class="form-select">
               <option>_</option>
@@ -99,13 +116,24 @@
             <label for="District">Citie</label>
           </div>
           <div>
-           
+
             <select id="state" name="District" class="form-control" required></select>
             <script language="javascript">print_state("sts");</script>
             <!-- <input type="text" name="District" value="h" placeholder="enter district " required> -->
           </div>
         </td>
 
+      </tr>
+
+      <tr>
+        <td>
+          <div>
+            <label for="Address">Address</label>
+          </div>
+          <div>
+            <Textarea name="Address"  placeholder="enter address" required></Textarea>
+          </div>
+        </td>
       </tr>
 
       <tr>
@@ -204,7 +232,7 @@
       }
     }
 
-  
+
   </script>
 
 

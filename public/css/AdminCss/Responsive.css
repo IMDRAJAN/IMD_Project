@@ -54,7 +54,7 @@
     .searchbar2 { 
         width: 100%; 
         display: flex; 
-        margin: 0 0 40px 0; 
+        margin: -18px 0 30px 0; 
         justify-content: center; 
     } 
     .searchbar2 input { 

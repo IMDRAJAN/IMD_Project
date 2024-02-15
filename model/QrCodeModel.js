@@ -20,6 +20,6 @@ const QR_Value_Schema = new mongooes.Schema({
     },
 });
 
-const QR_Code = new mongooes.model("qrvalueprices", QR_Value_Schema);
+const QR_Code = new mongooes.model( process.env.COLLECTION_3 , QR_Value_Schema);
 
 module.exports = QR_Code

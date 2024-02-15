@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const jwt = require('jsonwebtoken');
 const route = express.Router()
@@ -8,14 +9,14 @@ const Payment = require('../model/PaymentData.js');
 // const CryptoJS = require("crypto-js");
 
 
-let jwrSecreatKey = "mynameisrajanrathodmaheshabhaidhanjibjai"
+let jwrSecreatKey = process.env.JWT_SCRICT_KEY
 
 const QrScnnerfile = async (req, res) => {
 
 
     try {
         let userId = req.cookies.userDataBaseID;
-        console.log(userId);
+        console.log("uer id joken  =  ", userId);
 
         let verifiedToken = jwt.verify(userId, jwrSecreatKey);
         console.log(verifiedToken);
@@ -25,6 +26,15 @@ const QrScnnerfile = async (req, res) => {
         let Reward = await Rewards.find();
 
         if (result._id == verifiedToken.id) {
+            
+            const sixMonthsInSeconds = 6 * 30 * 24 * 60 * 60 * 60;
+            res.cookie('userDataBaseID', userId , {
+                httpOnly: true,
+                maxAge: sixMonthsInSeconds * 1000 , // Max age in milliseconds
+                secure: true, // Enable for production (requires HTTPS)
+                sameSite: 'strict' // Enable for added security
+            });
+
             res.render('QrScanner', { UserData: result, Rewards: Reward });
         } else {
             res.redirect('/');
@@ -123,7 +133,7 @@ const AdminTransfearRupes = async (req, res) => {
         console.log(req.body);
 
         let UserData = await UserAdd.findOne({ _id: req.body.UserInforMation });
-        console.log("user data pointes = ", UserData);
+        // console.log("user data pointes = ", UserData);
 
 
         let Reward = await Rewards.findOne({ _id: req.body.RwerDInformation });
@@ -133,6 +143,9 @@ const AdminTransfearRupes = async (req, res) => {
         if (UserData.POINTS >= Reward.POINTS) {
 
             if (req.body.Name && req.body.AccoNumber && req.body.IFSCCode && req.body.Bankname) {
+
+                let Reward = await Rewards.findOne({ _id: req.body.RwerDInformation });
+
                 let UserPointes = UserData.POINTS - Reward.POINTS
                 let UserupdatePointe = await UserAdd.updateOne({ _id: req.body.UserInforMation }, { $set: { POINTS: UserPointes } });
                 console.log(UserupdatePointe);
@@ -143,7 +156,7 @@ const AdminTransfearRupes = async (req, res) => {
                     UserID: req.body.UserInforMation,
                     RewardID: req.body.RwerDInformation,
                     UserPoints: UserData.POINTS,
-                    RewardPoinds: Reward.POINTS,
+                    RewardPoints: Reward.POINTS,
                     RewardRupes: Reward.RUPES,
                     Rupes: Reward.RUPES,
                 });
@@ -156,6 +169,8 @@ const AdminTransfearRupes = async (req, res) => {
             } 
             if (req.body.UPIID) {
 
+                
+
                 let UserPointes = UserData.POINTS - Reward.POINTS
                 let UserupdatePointe = await UserAdd.updateOne({ _id: req.body.UserInforMation }, { $set: { POINTS: UserPointes } });
                 console.log(UserupdatePointe);
@@ -166,7 +181,7 @@ const AdminTransfearRupes = async (req, res) => {
                     UserID: req.body.UserInforMation,
                     RewardID: req.body.RwerDInformation,
                     UserPoints: UserData.POINTS,
-                    RewardPoinds: Reward.POINTS,
+                    RewardPoints: Reward.POINTS,
                     RewardRupes: Reward.RUPES,
                     Rupes: Reward.RUPES,
                 });
@@ -184,10 +199,6 @@ const AdminTransfearRupes = async (req, res) => {
         }
 
 
-
-
-
-
     } catch (error) {
         console.log(error);
     }
@@ -195,4 +206,15 @@ const AdminTransfearRupes = async (req, res) => {
 }
 
 
-module.exports = { QrScnnerfile, scannQrPoint, collectRupes, AdminTransfearRupes }
+const logout = async (req, res) => {
+    try {
+        res.clearCookie('userDataBaseID'); // Clear the cookie named 'userDataBaseID'
+        res.redirect('/'); // Redirect the user to the home page or any other appropriate page after logout
+    } catch (error) {
+        console.log(error);
+        res.redirect('/'); // Redirect the user to the home page in case of any error
+    }
+}
+
+
+module.exports = { QrScnnerfile, scannQrPoint, collectRupes, AdminTransfearRupes , logout}

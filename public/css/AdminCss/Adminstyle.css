@@ -42,6 +42,7 @@ align-items: center;
 a{
     text-decoration: none;
     color: black;
+    font-size: 15px;
 }
 
 .logo { 
@@ -229,18 +230,20 @@ background-color: var(--Border-color);
 .box { 
 /* height: 130px; 
 width: 230px;  */
-border-radius: 20px; 
+border-radius: 10px; 
 box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751); 
-padding: 20px; 
+padding: 7px;
+margin-top: -20px ;
+margin-bottom: 20px;
 display: flex; 
 align-items: center; 
 justify-content: space-around; 
 cursor: pointer; 
 transition: transform 0.3s ease-in-out; 
 } 
-.box:hover { 
+/* .box:hover { 
 transform: scale(1.08); 
-} 
+}  */
 
 .box:nth-child(1) { 
 background-color: var(--one-use-color); 
@@ -259,8 +262,21 @@ background-color: var(--two-use-color);
 height: 50px; 
 } 
 .box .text { 
-color: white; 
+ color: white;
+ text-align: center; 
+ align-items: center;
+ justify-content: center;
 } 
+
+.box .text div{
+
+    text-align: center;
+    margin: 10px; 
+    padding:10px;
+    border-radius: 5px;
+    background-color: var(--two-use-color) ;
+
+}
 .topic { 
 font-size: 13px; 
 font-weight: 400; 
@@ -275,7 +291,7 @@ letter-spacing: 3px;
 .report-container { 
 min-height: 300px; 
 max-width: 1200px; 
-margin: 70px auto 0px auto; 
+margin: 0px auto 0px auto; 
 background-color: #ffffff; 
 border-radius: 30px; 
 box-shadow: 3px 3px 10px rgb(188, 188, 188); 

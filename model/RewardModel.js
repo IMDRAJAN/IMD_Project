@@ -21,6 +21,6 @@ const Reward_Schema = new mongooes.Schema({
     },
 });
 
-const Reward = new mongooes.model("reward", Reward_Schema);
+const Reward = new mongooes.model(process.env.COLLECTION_4, Reward_Schema);
 
 module.exports = Reward

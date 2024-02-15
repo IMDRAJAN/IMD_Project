@@ -33,7 +33,26 @@
     <script src="/javaScript/QRcodeScanerFile/html5-qrcode.min.js"></script>
 </head>
 
+<style>
 
+ .dropdown-menu{
+    text-align: center;
+    display: none;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+.dropdown-menu.open{
+    text-align: center;
+height: 240px;
+
+}
+
+#toggle_btn_button{
+    background-color: white;
+    border: none;
+}
+</style>
 
 <body>
 
@@ -50,7 +69,7 @@
             <% } else { %>
                 <% } %>
 
-
+                
                     <div class="card">
 
                         <div class="userinformation">
@@ -106,7 +125,13 @@
                             </button>
                         </div>
 
-                        <div class="setting">⚙</div>
+                        <div class="setting ">
+                            <button id="toggle_btn_button" class="toggle_btn isopen">⚙️</button> 
+                            <div class="dropdown-menu open">
+                                <a href="qrscanner/logout"> <button>logout</button> </a>
+                            </div>
+                            
+                        </div>
                     </div>
 
     </div>
@@ -151,6 +176,19 @@
 
         });
 
+    </script>
+
+    <script>
+        const toggle = document.querySelector('.toggle_btn');
+        const dropDownMenu = document.querySelector('.dropdown-menu');
+        const toggleBtnIcone = document.getElementById('toggle_btn_button')
+
+        toggle.onclick = function(){
+            console.log('click');
+            dropDownMenu.classList.toggle('dropdown-menu');
+            const isopen = dropDownMenu.classList.contains('dropdown-menu');
+            toggleBtnIcone.innerHTML = isopen ? '⚙️' : '❌'
+        }
     </script>
 </body>
 

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+				initial-scale=1.0">
+    <title>Create Qr Code</title>
+    <link rel='stylesheet' href='/css/AdminCss/Adminstyle.css' />
+    <link rel="stylesheet" href="/css/AdminCss/Responsive.css">
+</head>
+
+<style>
+      details>summary {
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    details>summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details>summary::before {
+        content: '👉';
+        padding-right: 5px;
+    }
+
+    details[open]>summary::before {
+        content: '👇';
+    }
+
+    details {
+        border: 1px solid gray;
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        margin-bottom: 10px;
+    }
+
+    details[open]>summary {
+        margin-bottom: 0.5rem;
+    }
+  
+</style>
+<body>
+
+    <!-- for header part -->
+    <header>
+        <%- include('./AdminHeader.ejs')  %>
+    </header>
+
+    <div class="main-container">
+
+        <div class="navcontainer">
+            <%- include('./AdminNaveBar.ejs')  %>
+        </div>
+
+        
+        <div class="main">
+
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-button">
+                </div>
+            </div>
+
+            <!-- <div class="box-container">
+                    <div class="box box1">
+                        <div class="text">
+                            <h2 class="topic-heading">
+                               
+                            </h2>
+                            <h2 class="topic">Not yet printed</h2>
+                        </div>
+
+
+                    </div>
+
+                   
+            </div> -->
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Articles">
+                         QR Code Analies
+                    </h1>
+                    <button class="view">View All</button>
+                </div>
+
+                <div class="report-body">
+
+
+                    <article>
+                        <details open>
+                            <summary>QR Code  </summary>
+                            <p>  hello user</p>
+                        </details>
+    
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat QR Code  </p>
+                        </details>
+
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat QR Code  </p>
+                        </details>
+
+
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat QR Code  </p>
+                        </details>
+
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat QR Code  </p>
+                        </details>
+
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat QR Code  </p>
+                        </details>
+
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat QR Code  </p>
+                        </details>
+
+                        <details>
+                            <summary> gujrat  QR Code  ditel</summary>
+                            <p>  gujrat user </p>
+                        </details>
+                    </article>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+   
+</body>
+
+</html>

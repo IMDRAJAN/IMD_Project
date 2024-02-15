@@ -7,6 +7,6 @@ const {ShowPaymentUser,SuccesPayment} = require('../../controlear/Admin/AdminUse
 
 
 route.get('/', ShowPaymentUser );
-route.post('/',SuccesPayment )
+route.post('/', SuccesPayment )
 module.exports = route 
 

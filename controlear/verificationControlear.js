@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const route = express.Router()
 const nodemailer = require("nodemailer");
@@ -41,7 +42,7 @@ const sendMail = async (req, res) => {
             // Setup email data
             const mailOptions = {
                 from: 'rp383364@gmail.com',
-                to: 'rajanrathod2002md@gmail.com',
+                to: req.body.UserEmail , 
                 subject: 'OTP Verification ',
                 text: `OTP :- ${OTP}  `,
             };
@@ -89,7 +90,7 @@ const updatePass = async (req, res) => {
 
                 if (req.body.Password == req.body.CornfirmPassword) {
                     var message = req.body.Password;
-                    var password = "SecretPassword"; // env
+                    var password = process.env.USER_PASSWOED_KEY ; // env
 
                     var securePassword = CryptoJS.AES.encrypt(message, password).toString();
                     console.log("register = " + securePassword);
@@ -111,7 +112,7 @@ const updatePass = async (req, res) => {
                     // Setup email data
                     const mailOptions = {
                         from: 'rp383364@gmail.com',
-                        to: 'rajanrathod2002md@gmail.com',
+                        to: req.params.Email,
                         subject: 'IMD Update password',
                         text: `Password updated successfully`,
                     };

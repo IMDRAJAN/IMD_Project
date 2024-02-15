@@ -11,6 +11,37 @@
     <link rel="stylesheet" href="/css/AdminCss/Responsive.css">
 </head>
 
+<style>
+      details>summary {
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    details>summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details>summary::before {
+        content: '👉';
+        padding-right: 5px;
+    }
+
+    details[open]>summary::before {
+        content: '👇';
+    }
+
+    details {
+        border: 1px solid gray;
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        margin-bottom: 10px;
+    }
+
+    details[open]>summary {
+        margin-bottom: 0.5rem;
+    }
+  
+</style>
 <body>
 
     <!-- for header part -->
@@ -62,6 +93,7 @@
 
 
                     <article>
+
                         <details>
                             <summary>User ditel</summary>
                             <p>  hello user</p>
@@ -69,23 +101,149 @@
     
                         <details>
                             <summary> gujrat  User ditel</summary>
-                            <p>  gujrat user </p>
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>CITY</td>
+                                        <td>USER</td>
+                                    </tr>
+        
+                                </thead>
+        
+                                <tbody>
+        
+                                    <% for (let i=0; i < Gujarat.length; i++) { %>
+        
+                                        <tr>
+                                            <td>
+                                                <%= i+1 %>
+                                            </td>
+                                            <td>
+                                                <%= Gujarat[i].City%>
+                                            </td>
+                                            <td>
+                                                <%=Gujarat[i].User %>
+                                            </td>
+                                           
+                                        </tr>
+        
+        
+                                        <% } %>
+                                </tbody>
+                            </table>
+        
+                        </details>
+
+
+                        <details>
+                            <summary>  Andaman & Nicobar  User ditel</summary>
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>CITY</td>
+                                        <td>USER</td>
+                                    </tr>
+        
+                                </thead>
+        
+                                <tbody>
+        
+                                    <% for (let i=0; i <  AndamanNicobar.length; i++) { %>
+        
+                                        <tr>
+                                            <td>
+                                                <%= i+1 %>
+                                            </td>
+                                            <td>
+                                                <%=  AndamanNicobar[i].City%>
+                                            </td>
+                                            <td>
+                                                <%= AndamanNicobar[i].User %>
+                                            </td>
+                                           
+                                        </tr>
+        
+        
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </details>
+
+
+                        <details>
+                            <summary> Andhra Pradesh User ditel</summary>
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>CITY</td>
+                                        <td>USER</td>
+                                    </tr>
+        
+                                </thead>
+        
+                                <tbody>
+        
+                                    <% for (let i=0; i <  AndhraPradesh.length; i++) { %>
+        
+                                        <tr>
+                                            <td>
+                                                <%= i+1 %>
+                                            </td>
+                                            <td>
+                                                <%=  AndhraPradesh[i].City%>
+                                            </td>
+                                            <td>
+                                                <%= AndhraPradesh[i].User %>
+                                            </td>
+                                           
+                                        </tr>
+        
+        
+                                        <% } %>
+                                </tbody>
+                            </table>
                         </details>
 
                         <details>
-                            <summary> gujrat  User ditel</summary>
-                            <p>  gujrat user </p>
-                        </details>
+                            <summary> Arunachal Pradesh  User ditel</summary>
+                            <table>
 
-
-                        <details>
-                            <summary> gujrat  User ditel</summary>
-                            <p>  gujrat user </p>
-                        </details>
-
-                        <details>
-                            <summary> gujrat  User ditel</summary>
-                            <p>  gujrat user </p>
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>CITY</td>
+                                        <td>USER</td>
+                                    </tr>
+        
+                                </thead>
+        
+                                <tbody>
+        
+                                    <% for (let i=0; i <  ArunachalPradesh.length; i++) { %>
+        
+                                        <tr>
+                                            <td>
+                                                <%= i+1 %>
+                                            </td>
+                                            <td>
+                                                <%=  ArunachalPradesh[i].City%>
+                                            </td>
+                                            <td>
+                                                <%= ArunachalPradesh[i].User %>
+                                            </td>
+                                           
+                                        </tr>
+        
+        
+                                        <% } %>
+                                </tbody>
+                            </table>
                         </details>
 
                         <details>

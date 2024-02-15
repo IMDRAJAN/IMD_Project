@@ -4,13 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, 
-				initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Reward</title>
     <link rel='stylesheet' href='/css/AdminCss/Adminstyle.css' />
     <link rel="stylesheet" href="/css/AdminCss/Responsive.css">
 </head>
-
+<style>
+        input,
+    select {
+        width: 100%;
+        padding: 3px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
 <body>
 
     <!-- for header part -->
@@ -41,38 +50,19 @@
                 <form method="post">
                     <div class="box box1">
                         <div class="text">
-                            <h2 class="topic-heading"></h2>
-
-                            <h2 class="topic"> Text </h2>
-
+                            <h4>Add Reward</h4>
+                            <h6 > Text </h6>
                             <textarea name="RewardText" id="" cols="26" rows="5"> </textarea>
-                        </div>
 
-
-                    </div>
-
-                    <div class="box box2">
-                        <div class="text">
-                            <h2 class="topic">Pointes</h2>
+                            <h6 >Pointes</h6>
                             <h3 class="topic-heading"><input type="number" name="RewardPointes" value="0"></h3>
-                            <!-- <h4 class="topic"></h4> -->
-                        </div>
 
-                    </div>
-
-                    <div class="box box3">
-                        <div class="text">
-                            <h2 class="topic">Rupes</h2>
+                            <h6>Rupes</h6>
                             <h3 class="topic-heading"><input type="number" name="RewardRupes" value='0'></h3>
-                        </div>
 
-                    </div>
-
-                    <div class="box box4">
-                        <div class="text">
                             <h2><button type="submit">Add Reward</button></h2>
-
                         </div>
+
 
                     </div>
                 </form>

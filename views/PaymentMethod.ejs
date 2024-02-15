@@ -55,6 +55,15 @@
         box-sizing: border-box;
         margin-bottom: 10px;
     }
+    input[type="number"],
+    select {
+        width: calc(100% - 20px);
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
 
     button[type="submit"] {
         background-color: #4CAF50;
@@ -125,7 +134,7 @@
                             <input type="text" name="Name" placeholder="Enter Name" required>
 
                             <div>Enter Bank Account Number</div>
-                            <input type="text" name="AccoNumber" placeholder="Enter Bank Acount Number" required>
+                            <input type="number" name="AccoNumber" placeholder="Enter Bank Acount Number" required>
 
                             <div>Enter IFSC Code</div>
                             <input type="text" name="IFSCCode" placeholder="Enter IFSC Code" required>

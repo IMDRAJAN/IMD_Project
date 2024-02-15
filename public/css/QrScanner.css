@@ -8,12 +8,16 @@ body {
     box-sizing: border-box;
     background-color: #f2f2f2;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
 
     height: 100vh;
-    width: 100%;
+    width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,8 +25,9 @@ body {
 }
 
 .card {
-    max-width: 400px;
-    margin: 5px;
+    /* max-width: 400px; */
+    width: 100%;
+    /* margin: 1px; */
     padding: 5px;
     position: relative;
     background-color: #fff;
@@ -32,7 +37,7 @@ body {
 
 .userinformation {
     height: 12vh;
-    margin: 10px 0px 0px 0px;
+    /* margin: 10px 0px 0px 0px; */
     padding: 7px;
     background-color: rgba(101, 218, 107, 0.050);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -69,19 +74,32 @@ img {
 }
 
 .setting {
-
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
     font-size: 40px;
     position: absolute;
     right: 2%;
     top: 1%;
+    /* background-color:  rgb(139, 83, 255); */
+}
+.setting  button{
+    cursor: pointer;
+    border: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 3px;
+
 }
 
 .offers {
     max-width: 99%;
-    background-color: rgba(189, 172, 248, 0.089);
+    background-color: rgba(101, 218, 107, 0.050);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    height: 59vh;
+    height: 63vh;
     overflow: auto;
     margin: 10px 0px;
 }

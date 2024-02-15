@@ -1,6 +1,8 @@
+require('dotenv').config()
 
 const mongooes = require("mongoose");
-mongooes.connect("mongodb://127.0.0.1:27017/IMD_QR_POINTS", {
+// "mongodb://127.0.0.1:27017/IMD_QR_POINTS"
+mongooes.connect(process.env.DATABASE_URL, {
     // useNewUrlParser: true,
     // useUnifiedTopology: true,
     // useCreateIndex:true,

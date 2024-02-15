@@ -7,6 +7,11 @@ const User_Schema = new mongooes.Schema({
         required: true,   
         trim: true,     
     },
+    Gender: {
+        type: String,
+        // required: true,   
+        trim: true,     
+    },
     MobileNumber: {
         type: Number,
         validate(value) {  //(value) e user na input ma chack kare
@@ -35,6 +40,11 @@ const User_Schema = new mongooes.Schema({
         required: true,   
         trim: true,
     },
+    Address:{
+        type: String,
+        // required: true,   
+        trim: true,
+    },
     EmailId:{
         type: String,
         required: true,   
@@ -55,6 +65,6 @@ const User_Schema = new mongooes.Schema({
     },
 });
 
-const User = new mongooes.model("user", User_Schema);
+const User = new mongooes.model(process.env.COLLECTION_5 , User_Schema);
 
 module.exports = User

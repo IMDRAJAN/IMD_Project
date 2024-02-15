@@ -11,18 +11,30 @@
     <link rel="stylesheet" href="/css/AdminCss/Responsive.css">
 </head>
 
+<style>
+    input,
+    select {
+        width: 100%;
+        padding: 3px;
+        margin-bottom: 7px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
+
 <body>
 
     <!-- for header part -->
     <header>
-        <%- include('./AdminHeader.ejs')  %>
+        <%- include('./AdminHeader.ejs') %>
     </header>
 
     <div class="main-container">
         <div class="navcontainer">
-            <%- include('./AdminNaveBar.ejs')  %> 
+            <%- include('./AdminNaveBar.ejs') %>
         </div>
-        
+
         <div class="main">
 
             <div class="searchbar2">
@@ -37,40 +49,52 @@
 
                 <form method="post">
                     <div class="box box1">
-                        <div class="text">
-                            <h2 class="topic-heading">
-                                <%= data.length %>
-                            </h2>
-                            <h2 class="topic">Not yet printed</h2>
+                        <div class="text" style="display: flex; flex-wrap: wrap;">
+                            <div >
+                                <h2>
+                                    <%= data.length %>
+                                        <h5>Not yet printed</h5>
+                                </h2>
+                                
+                            </div>
+                            <div>
+                                <h4>How many QR codes to generate?</h4>
+                                <h3><input type="number" name="QrCodeCreate" value="0"></h3>
+                                <h4> QR codes Pointe</h4>
+                                <h3><input type="number" name="QrPointe" value='0'></h3>
+                                <h2><button type="submit"> Creat</button> </h2>
+
+                            </div>
+
                         </div>
 
 
                     </div>
 
-                    <div class="box box2">
+                    <!-- <div class="box box2">
                         <div class="text">
                             <h2 class="topic">How many QR codes to generate?</h2>
                             <h3 class="topic-heading"><input type="number" name="QrCodeCreate" value="0"></h3>
-                            <!-- <h4 class="topic"></h4> -->
+                           
                         </div>
 
-                    </div>
+                    </div> -->
 
-                    <div class="box box3">
+                    <!-- <div class="box box3">
                         <div class="text">
                             <h2 class="topic"> QR codes Pointe</h2>
                             <h3 class="topic-heading"><input type="number" name="QrPointe" value='0'></h3>
                         </div>
 
-                    </div>
+                    </div> -->
 
-                    <div class="box box4">
+                    <!-- <div class="box box4">
                         <div class="text">
                             <h2><button type="submit"> Creat</button></h2>
 
                         </div>
 
-                    </div>
+                    </div> -->
                 </form>
             </div>
 
@@ -128,7 +152,7 @@
                                     <td>
                                         <%=data[i].__v%>
                                     </td>
-                                    <td> <a href="/qrcreate/<%= data[i]._id %>">  <button> X </button> </a></td>
+                                    <td> <a href="/qrcreate/<%= data[i]._id %>"> <button> X </button> </a></td>
                                 </tr>
 
 

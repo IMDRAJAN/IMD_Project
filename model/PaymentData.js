@@ -13,7 +13,7 @@ const PaymentData_Schema = new mongooes.Schema({
         required: true,   
         trim: true,     
     },
-    ConfirmPayment: {
+    SuccessPayment: {
         type: Boolean,
         default: false,
         required: true,   
@@ -37,13 +37,12 @@ const PaymentData_Schema = new mongooes.Schema({
         trim: true,
     },
     UserPoints:{
-        type: Number,
-        default:0,  
+        type: Number, 
         trim: true,
     },
-    RewardPoinds:{
+    RewardPoints:{
         type: Number,
-        default:0, 
+        required: true,  
         trim: true,
     },
     RewardRupes:{
@@ -62,6 +61,6 @@ const PaymentData_Schema = new mongooes.Schema({
     },
 });
 
-const PaymentData = new mongooes.model("PaymentData", PaymentData_Schema);
+const PaymentData = new mongooes.model( process.env.COLLECTION_2 , PaymentData_Schema);
 
 module.exports = PaymentData

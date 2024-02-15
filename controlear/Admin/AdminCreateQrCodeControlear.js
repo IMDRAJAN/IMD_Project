@@ -1,21 +1,21 @@
 const express = require('express')
+const fs = require('fs');
 const route = express.Router()
 
 const QR_Code = require('../../model/QrCodeModel.js');
 
 
 const ShowQrCode = async (req, res) => {
-    try {
-
-    
+    try {    
         let result = await QR_Code.find({ PRINT: false });
         console.log(result);
         res.render('Admin/AdminCreateQrCode', { data: result });
     } catch (error) {
         console.log(error);
     }
-    // res.render('Admin/AdminCreateQrCode' , {data:r})
 }
+
+
 
 const CreateQrCode = async (req, res) => {
     try {
@@ -24,6 +24,7 @@ const CreateQrCode = async (req, res) => {
         console.log(req.body.QrPointe);
 
         let {QrCodeCreate , QrPointe} = req.body
+
         for (let i = 0; i < QrCodeCreate; i++) {
             const InsertQrCode = new QR_Code({
                 QR_POINTE: QrPointe,

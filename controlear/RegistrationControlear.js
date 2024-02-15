@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const route = express.Router()
 const UserAdd = require('../model/userRegistationModel.js');
@@ -19,7 +20,7 @@ const LoginFile = async (req, res) => {
     console.log(req.body.Password);
     console.log(req.body.CornfirmPassword);
     var message = req.body.Password;
-    var password = "SecretPassword"; // env
+    var password = process.env.USER_PASSWOED_KEY ; // env
 
     let result = await UserAdd.findOne({ EmailId: req.body.Email });
 
@@ -27,18 +28,19 @@ const LoginFile = async (req, res) => {
 
       if (req.body.Password == req.body.CornfirmPassword) {
         var message = req.body.Password;
-        var password = "SecretPassword"; // env
-
+      
         var SecurePassword = CryptoJS.AES.encrypt(message, password).toString()
         console.log("register = " + SecurePassword);
     
         const insertQrValue = new UserAdd({
           UserName: req.body.UserName,
+          Gender:req.body.Gender,
           MobileNumber: req.body.MobileNumber,
           Age: req.body.Age,
           Country: req.body.Country,
           State: req.body.State,
           Citie: req.body.District,
+          Address : req.body.Address,
           EmailId: req.body.Email,
           Password: SecurePassword,
         });
